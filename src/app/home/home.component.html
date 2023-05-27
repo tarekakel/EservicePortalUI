@@ -1,0 +1,19 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+        <h1 class="h3 mb-2 text-gray-800">You're not logged in</h1>
+        <p class="mb-4">To login to the portal Dashboard <a routerLink="/account/login">Log in </a>.</p>
+        <!-- <a routerLink="/account/register" class="btn btn-outline-secondary me-2">Sign up</a> -->
+    </ng-container>
+
+
+    <div class="h5 mb-0 font-weight-bold text-gray-800" *ngIf="accountService.currentUser$ | async as user">
+       Welcome {{user.displayName}}
+       <p class="mb-4">Go to portal <a routerLink="/portal">Portal</a>.</p>
+    </div>
+      
+
+
+</div>
+<!-- /.container-fluid -->
